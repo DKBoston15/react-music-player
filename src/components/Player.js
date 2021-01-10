@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,8 +16,34 @@ const Player = ({
   songInfo,
   setCurrentSong,
   currentSong,
-  songs
+  songs,
+  setSongs
 }) => {
+  //useEffect
+  useEffect(() => {
+    const newSongs = songs.map(song => {
+      if (song.id === currentSong.id) {
+        return {
+          ...song,
+          active: true
+        };
+      } else {
+        return {
+          ...song,
+          active: false
+        };
+      }
+    });
+    setSongs(newSongs);
+    if (isPlaying) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(audio => {
+          audioRef.current.play();
+        });
+      }
+    }
+  }, [currentSong]);
   //Event Handlers
   const playSongHandler = () => {
     setIsPlaying(!isPlaying);
@@ -42,10 +68,8 @@ const Player = ({
     if (direction === "skip-forward") {
       let nextIndex = currentIndex + 1;
       if (nextIndex >= songs.length) {
-        console.log("greater than");
         setCurrentSong(songs[0]);
       } else {
-        console.log("less than");
         setCurrentSong(songs[currentIndex + 1]);
       }
     } else {
