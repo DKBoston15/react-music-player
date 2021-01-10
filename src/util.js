@@ -60,8 +60,27 @@ function chillHop() {
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: false
+    },
+    {
+      name: "Jazz Cabbage",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/06/49f6e32ca521fbad46a1b281e3893cf6254bf11d-1024x1024.jpg",
+      artist: "Ian Ewing, Strehlow",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9363",
+      color: ["#BA4A46", "#FDF0DD"],
+      id: uuidv4(),
+      active: false
+    },
+    {
+      name: "Lagoons",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/06/49f6e32ca521fbad46a1b281e3893cf6254bf11d-1024x1024.jpg",
+      artist: "Strehlow, Chris Mazuera",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=8266",
+      color: ["#BA4A46", "#FDF0DD"],
+      id: uuidv4(),
+      active: false
     }
-    //ADD MORE HERE
   ];
 }
 
