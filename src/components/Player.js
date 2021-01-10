@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,7 +7,13 @@ import {
   faAngleRight
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = props => {
+const Player = ({ currentSong }) => {
+  const audioRef = useRef(null);
+  //Event Handlers
+  const playSongHandler = () => {
+    console.log(audioRef);
+  };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -17,13 +23,18 @@ const Player = props => {
       </div>
       <div className="play-control">
         <FontAwesomeIcon className="skip-back" icon={faAngleLeft} size="2x" />
-        <FontAwesomeIcon className="play" icon={faPlay} />
+        <FontAwesomeIcon
+          onClick={playSongHandler}
+          className="play"
+          icon={faPlay}
+        />
         <FontAwesomeIcon
           className="skip-forward"
           icon={faAngleRight}
           size="2x"
         />
       </div>
+      <audio ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
 };
