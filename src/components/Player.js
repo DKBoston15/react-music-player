@@ -9,7 +9,7 @@ import {
 
 const Player = props => {
   return (
-    <div className="player-container">
+    <div className="player">
       <div className="time-control">
         <p>Start Time</p>
         <input type="range" />
