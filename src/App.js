@@ -11,6 +11,7 @@ import data from "./util";
 
 function App() {
   const audioRef = useRef(null);
+
   const timeUpdateHandler = e => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
